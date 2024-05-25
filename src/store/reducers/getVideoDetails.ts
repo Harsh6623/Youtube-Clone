@@ -4,7 +4,7 @@ import { convertRawViewstoString, timeSince } from "../../utils";
 
 import { YOUTUBE_API_URL } from "../../utils/constants";
 
-const API_KEY = process.env.REACT_APP_YOTUBE_DATA_API_KEY;
+const API_KEY = process.env.REACT_APP_YOUTUBE_DATA_API_KEY;
 
 export const getVideoDetails = createAsyncThunk(
   "yotubeApp/videoDetails",
