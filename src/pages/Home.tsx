@@ -1,16 +1,16 @@
 import React, { useEffect } from "react";
+import InfiniteScroll from "react-infinite-scroll-component";
+import Card from "../components/Card";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
-import { useAppDispetch, useAppSelector } from "../store/hooks";
-import { getHomePageVideos } from "../store/reducers/getHomePageVideos";
-import InfiniteScroll from "react-infinite-scroll-component";
 import Spinner from "../components/Spinner";
-import { HomePageVideos } from "../Types";
-import Card from "../components/Card";
 import { clearVideos } from "../store";
+import { useAppDispatch, useAppSelector } from "../store/hooks";
+import { getHomePageVideos } from "../store/reducers/getHomePageVideos";
+import { HomePageVideos } from "../Types";
 
 export default function Home() {
-  const dispatch = useAppDispetch();
+  const dispatch = useAppDispatch();
   const videos = useAppSelector((state) => state.youtubeApp.videos);
 
   useEffect(() => {
@@ -22,8 +22,9 @@ export default function Home() {
   useEffect(() => {
     dispatch(getHomePageVideos(false));
   }, [dispatch]);
+
   return (
-    <div className=" max-h-screen overflow-hidden ">
+    <div className="max-h-screen overflow-hidden">
       <div style={{ height: "7.5vh" }}>
         <Navbar />
       </div>
