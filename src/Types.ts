@@ -4,7 +4,7 @@ export interface InitialState {
   searchTerm: string;
   searchResults: [];
   nextPageToken: string | null;
-  recommendedVideos: Recommendedvideos[];
+  recommendedVideos: RecommendedVideos[];
 }
 
 export interface HomePageVideos {
@@ -12,6 +12,7 @@ export interface HomePageVideos {
   videoTitle: string;
   videoDescription: string;
   videoLink: string;
+
   videoThumbnail: string;
   videoDuration: string;
   videoViews: string;
@@ -23,6 +24,41 @@ export interface HomePageVideos {
   };
 }
 
-export interface CurrentPlaying {}
+export interface CurrentPlaying {
+  videoId: string;
+  videoTitle: string;
+  videoDescription: string;
+  videoViews: string;
+  videoLikes: string;
+  videoAge: string;
+  channelInfo: {
+    id: string;
+    image: string;
+    name: string;
+    subscribers: string;
+  };
+}
 
-export interface Recommendedvideos {}
+export interface RecommendedVideos {
+  videoId: string;
+  videoTitle: string;
+  videoThumbnail: string;
+  videoDuration: string;
+  videoViews: string;
+  videoAge: string;
+  channelInfo: {
+    id: string;
+    name: string;
+  };
+}
+
+export interface Item {
+  snippet: {
+    title: string;
+    thumbnails: { medium: { url: string } };
+    publishedAt: Date;
+    channelTitle: string;
+    channelId: string;
+  };
+  contentDetails: { upload: { videoId: string } };
+}
